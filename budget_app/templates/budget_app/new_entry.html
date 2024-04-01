@@ -1,0 +1,15 @@
+{% extends "budget_app/base.html" %}
+{% load bootstrap4 %}
+
+
+{% block content %}
+    <p><h2>Add a new entry:</h2></p>
+    <hr class="my-6">
+    <p><a href="{% url 'budget_app:transaction' transaction.id %}">{{ transaction }}</a></p>
+        <form action="{% url 'budget_app:new_entry' transaction.id %}" method='post'>
+            {% csrf_token %}
+            {% bootstrap_form form %}  
+            <button type="submit" class="btn btn-primary"> Add Entry</button>
+        </form>
+
+{% endblock content %}

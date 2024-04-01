@@ -1,0 +1,33 @@
+{% load bootstrap4 %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Budget App</title>
+  {% bootstrap_css %}
+  {% bootstrap_javascript jquery='full' %}
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-primary">
+      
+        <a class="navbar-brand" href="{% url 'budget_app:index'%}">Budget App</a>
+        <a class="nav-item text-white" href="{% url 'budget_app:transactions'%}">Transactions</a>
+        <a class="nav-item text-white" href="{% url 'budget_app:bar_chart'%}">Track Your Spending</a>
+       
+    
+	  </nav>
+    <main role="main" class="container">
+        <div class="pb-2 mb-2 border-bottom">
+        {% block page_header %}{% endblock page_header %}
+        </div>
+        <div>
+          {% block content %}{% endblock content %}
+        </div>
+    </main>
+    
+</body>
+</html>
